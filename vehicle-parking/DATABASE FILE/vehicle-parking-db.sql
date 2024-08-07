@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 06, 2024 at 11:25 PM
+-- Generation Time: Aug 07, 2024 at 03:54 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -105,20 +105,22 @@ CREATE TABLE `vehicle_info` (
   `OwnerContactNumber` bigint(10) DEFAULT NULL,
   `InTime` timestamp NULL DEFAULT current_timestamp(),
   `OutTime` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp(),
-  `ParkingCharge` decimal(10,2) NOT NULL,
+  `ParkingCharge` int(100) NOT NULL,
   `Remark` mediumtext NOT NULL,
   `Status` varchar(5) NOT NULL,
-  `HourlyRate` decimal(10,2) DEFAULT NULL
+  `HourlyRate` decimal(10,2) DEFAULT NULL,
+  `ParkingTimer` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `vehicle_info`
 --
 
-INSERT INTO `vehicle_info` (`ID`, `ParkingNumber`, `VehicleCategory`, `VehicleCompanyname`, `RegistrationNumber`, `OwnerName`, `OwnerContactNumber`, `InTime`, `OutTime`, `ParkingCharge`, `Remark`, `Status`, `HourlyRate`) VALUES
-(29, '57445', 'Two Wheeler', '12312', '1231', '12312', 312312, '2024-08-06 20:41:14', '2024-08-06 21:24:30', 50.00, 'df', 'Out', 50.00),
-(31, '61048', '0', '3123', '12312', '123123', 12, '2024-08-06 20:58:52', '2024-08-06 20:58:57', 0.00, '123', 'Out', 0.00),
-(35, '34979', 'Four Wheeler', '123123', '123123', '12312', 123123, '2024-08-06 21:10:22', NULL, 0.00, '', '', 100.06);
+INSERT INTO `vehicle_info` (`ID`, `ParkingNumber`, `VehicleCategory`, `VehicleCompanyname`, `RegistrationNumber`, `OwnerName`, `OwnerContactNumber`, `InTime`, `OutTime`, `ParkingCharge`, `Remark`, `Status`, `HourlyRate`, `ParkingTimer`) VALUES
+(38, '94756', 'Four Wheeler', '1231', '123123', '123123', 123123, '2024-08-07 01:13:44', '2024-08-07 01:14:57', 300, 'sada', 'Out', 100.00, 3),
+(39, '63022', 'Four Wheeler', '12312', '123123', '123123', 123123, '2024-08-07 01:19:27', '2024-08-07 01:34:49', 520, '123', 'Out', 100.00, 8),
+(40, '60072', 'Four Wheeler', '123123', '123123', '1231', 123123, '2024-08-07 01:35:05', '2024-08-07 01:51:15', 1000, '', 'Out', 100.00, 10),
+(41, '71026', 'Two Wheeler', 'Honda', '45466', 'ryan otacan', 123456789, '2024-08-07 01:51:56', '2024-08-07 01:52:14', 150, '', '', 50.00, 3);
 
 --
 -- Indexes for dumped tables
@@ -174,7 +176,7 @@ ALTER TABLE `vcategory`
 -- AUTO_INCREMENT for table `vehicle_info`
 --
 ALTER TABLE `vehicle_info`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
